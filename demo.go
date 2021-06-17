@@ -4,6 +4,139 @@ import (
 	"fmt"
 )
 
+const (
+	_  = iota
+	KB = 1 << (10 * iota)
+	MB
+	GB
+)
+
 func main() {
-	fmt.Println("Hello World")
+
+	// Variable Exmple
+	// var i int = 42
+	// fmt.Printf("%v, %T\n", i, i)
+
+	// Type Conversion Exmple
+	// var j string = strconv.Itoa(i)
+	// fmt.Printf("%v, %T\n", j, j)
+
+	// Shifting Exmple
+	// a := 7
+	// fmt.Println(a << 3) // left shift = a * 2^3
+	// fmt.Println(a >> 3) // right shift = a / 2^3
+
+	// Complex number Exmple
+	// var n complex64 = 1 + 2i
+	// fmt.Printf("%v, %T\n", real(n), real(n))
+	// fmt.Printf("%v, %T\n", imag(n), imag(n))
+
+	// var n complex128 = complex(1, 2)
+	// fmt.Printf("%v, %T\n", real(n), real(n))
+	// fmt.Printf("%v, %T\n", imag(n), imag(n))
+
+	// String Exmple
+	// string is immutable means we can't do "s[2] = b" this
+	// s := "this is a string"
+	// b := []byte(s)
+	// fmt.Printf("%v, %T\n", string(b), b)
+
+	// iota example
+	// filesize := 4000000000.
+	// fmt.Printf("%.2fGB\n", filesize/GB)
+
+	// array example
+	// var grades [3]string
+	// grades := [...]int{10, 12, 14, 16}
+	// fmt.Println(grades)
+
+	// 2D array example
+	// var identityMatrix [3][3]int
+	// identityMatrix[0] = [3]int{1, 0, 0}
+	// identityMatrix[1] = [3]int{0, 1, 0}
+	// identityMatrix[2] = [3]int{0, 0, 1}
+	// fmt.Println(identityMatrix)
+
+	// a := [...]int{1, 2, 3}
+	// b := &a
+	// b[1] = 5
+	// fmt.Println(a)
+	// fmt.Println(*b)
+
+	// a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	// b := a[:]
+	// c := a[3:]
+	// d := a[:6]
+	// e := a[3:6]
+	// fmt.Println(a)
+	// fmt.Println(b)
+	// fmt.Println(c)
+	// fmt.Println(d)
+	// fmt.Println(e)
+
+	// a := make([]int, 3, 10)
+	// fmt.Println(a)
+	// fmt.Printf("Length: %v\n", len(a))
+	// fmt.Printf("Capacity: %v\n", cap(a))
+	// // ... will spread out whole slice into individual arguments
+	// a = append(a, []int{1, 2, 4}...)
+	// fmt.Println(a)
+
+	// pop element from slice
+	// a := []int{1, 2, 3, 4, 5}
+	// b := append(a[:2], a[3:]...)
+	// fmt.Println(b)
+	// fmt.Println(a)
+
+	// we cannot use slice, maps and funciton for quivalency checking.
+
+	// Map Example
+	// statePopulation := make(map[string]int)
+	// statePopulation := map[string]int{
+	// 	"gujarat": 10,
+	// 	"up":      20,
+	// 	"mp":      30,
+	// 	"ohio":    0,
+	// }
+	// statePopulation["kerala"] = 40
+
+	// delete in map
+	// delete(statePopulation, "kerala")
+	// fmt.Println(statePopulation)
+
+	// checking for key in map
+	// _, ok := statePopulation["ohoi"]
+	// fmt.Println(ok)
+
+	// manipulating map in one place will affect to another place
+	// temp := statePopulation
+	// delete(temp, "ohio")
+	// fmt.Println(temp)
+	// fmt.Println(statePopulation)
+
+	// struct example
+	// struct gathers information together that are relate to one concept
+
+	type Doctor struct {
+		number    int
+		actorName string
+		episodes  map[string]int
+		compions  []string
+	}
+
+	aDoctor := Doctor{
+		number:    3,
+		actorName: "AD",
+		episodes: map[string]int{
+			"a": 1,
+			"b": 2,
+		},
+		compions: []string{
+			"a",
+			"b",
+			"c",
+		},
+	}
+
+	fmt.Println(aDoctor.episodes)
 }
