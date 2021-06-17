@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 )
 
 const (
@@ -117,26 +118,75 @@ func main() {
 	// struct example
 	// struct gathers information together that are relate to one concept
 
-	type Doctor struct {
-		number    int
-		actorName string
-		episodes  map[string]int
-		compions  []string
+	// doc := struct {
+	// 	name string
+	// }{
+	// 	name: "AD",
+	// }
+	// fmt.Println(doc)
+
+	// type Doctor struct {
+	// 	number    int
+	// 	actorName string
+	// 	episodes  map[string]int
+	// 	compions  []string
+	// }
+	// aDoctor := Doctor{
+	// 	number:    3,
+	// 	actorName: "AD",
+	// 	episodes: map[string]int{
+	// 		"a": 1,
+	// 		"b": 2,
+	// 	},
+	// 	compions: []string{
+	// 		"a",
+	// 		"b",
+	// 		"c",
+	// 	},
+	// }
+	// fmt.Println(aDoctor.episodes)
+
+	// Go doesn't support traditional object oriented principles like inheritance
+	// Go use composition instead of inheritance
+	// composition example
+
+	// Embedding in go using struct
+	// type Animal struct {
+	// 	Name   string
+	// 	Origin string
+	// }
+	// type Bird struct {
+	// 	Animal
+	// 	SpeedKPH float32
+	// 	CanFly   bool
+	// }
+
+	// c := Bird{
+	// 	Animal: Animal{
+	// 		Name:   "Emu",
+	// 		Origin: "Australia",
+	// 	},
+	// 	SpeedKPH: 48,
+	// 	CanFly:   false,
+	// }
+	// fmt.Println(c.Name)
+
+	// b := Bird{}
+	// b.Name = "Emu"
+	// b.Origin = "Australia"
+	// b.SpeedKPH = 48
+	// b.CanFly = false
+	// fmt.Println(b.Origin)
+
+	// Tag in struct
+
+	type Animal struct {
+		Name   string `required max:"100"`
+		Origin string
 	}
 
-	aDoctor := Doctor{
-		number:    3,
-		actorName: "AD",
-		episodes: map[string]int{
-			"a": 1,
-			"b": 2,
-		},
-		compions: []string{
-			"a",
-			"b",
-			"c",
-		},
-	}
+	t := reflect.TypeOf(Animal{})
+	field, _ := t.FieldByName("Name")
+	fmt.Println(field.Tag)
 
-	fmt.Println(aDoctor.episodes)
 }
