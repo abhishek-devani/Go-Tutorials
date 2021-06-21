@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"reflect"
-)
-
 const (
 	_  = iota
 	KB = 1 << (10 * iota)
@@ -180,13 +175,13 @@ func main() {
 
 	// Tag in struct
 
-	type Animal struct {
-		Name   string `required max:"100"`
-		Origin string
-	}
+	// type Animal struct {
+	// 	Name   string `required max:"100"`
+	// 	Origin string
+	// }
 
-	t := reflect.TypeOf(Animal{})
-	field, _ := t.FieldByName("Name")
-	fmt.Println(field.Tag)
+	// t := reflect.TypeOf(Animal{})
+	// field, _ := t.FieldByName("Name")
+	// fmt.Println(field.Tag)
 
 }
